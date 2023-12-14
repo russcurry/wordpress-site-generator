@@ -1,0 +1,47 @@
+services:
+    db:
+        container_name: {{account_id}}-db
+        image: mariadb:10.6.4-focal
+        command: '--default-authentication-plugin=mysql_native_password'
+        volumes:
+            - /var/www/sites/{{account_id}}/mysql_data:/var/lib/mysql
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD={{mysql_root_password}}
+            - MYSQL_DATABASE={{mysql_site_database}}
+            - MYSQL_USER={{mysql_site_username }}
+            - MYSQL_PASSWORD={{mysql_site_password}}
+        expose:
+            - 3306
+            - 33060
+
+    wordpress:
+        container_name: {{account_id}}-wp
+        image: wordpress:latest
+        ports:
+            - 80
+        restart: always
+        volumes:
+            - /var/www/sites/{{account_id}}/wordpress:/var/www/html
+        environment:
+            - WORDPRESS_DB_HOST=db
+            - WORDPRESS_DB_USER={{mysql_site_username}}
+            - WORDPRESS_DB_PASSWORD={{mysql_site_password}}
+            - WORDPRESS_DB_NAME={{mysql_site_database}}
+        depends_on:
+            - "db"
+
+    wpcli:
+        container_name: {{account_id}}-cli
+        image: wordpress:cli
+        user: 33:33
+        depends_on:
+            - "wordpress"
+        command: tail -f /dev/null
+        volumes:
+            - /var/www/sites/{{account_id}}/wordpress:/var/www/html
+        environment:
+            WORDPRESS_DB_HOST: {{account_id}}-db
+            WORDPRESS_DB_USER: {{mysql_site_username }}
+            WORDPRESS_DB_PASSWORD: {{mysql_site_password}}
+            WORDPRESS_DB_NAME: {{mysql_site_database}}
