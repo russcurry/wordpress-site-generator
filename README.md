@@ -8,7 +8,9 @@ For instance, you want to allow your system to be able to create new
 instances of Wordpress sites on demand:
 
 user-a.example.com
+
 user-b.example.com
+
 user-c.example.com
 
 And so on.
@@ -30,6 +32,7 @@ request; for instance, right now it's "joeuser" and so your hosts
 file will need to look like this:
 
 127.0.0.1  example.com
+
 127.0.0.1  joeuser.example.com
 
 After that, it's just a matter of POSTing to the "/sites" endpoint
