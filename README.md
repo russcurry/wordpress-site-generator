@@ -1,5 +1,5 @@
 # wordpress-site-generator
-API for launching new instances of Wordpress sites on multiple subdomains.
+API for creating instances of Wordpress sites on different subdomains.
 
 This node.js app provides an API that you can call to programmatically
 create a new instance of a container-based Wordpress installation that is
