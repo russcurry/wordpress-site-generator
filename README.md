@@ -38,11 +38,17 @@ After that, it's just a matter of POSTing to the "/sites" endpoint
 with the following JSON request body:
 
 {
+
   "account_id": "49c60352-b08f-426b-a25d-5e1b24782f68",
+  
   "account_domain": "example.com",
+  
   "account_subdomain": "joeuser",
+  
   "account_email_address": "joeuser@example.com",
+  
   "account_admin_password": "testing"
+  
 }
 
 And within a few moments you'll have a new Wordpress instance
