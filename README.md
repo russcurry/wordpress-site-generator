@@ -2,7 +2,8 @@
 API for launching new instances of Wordpress sites on multiple subdomains.
 
 This node.js app provides an API that you can call to programmatically
-create a new instance of a Wordpress installation at a specific subdomain.
+create a new instance of a container-based Wordpress installation that is
+available over NGINX on a specific subdomain.
 
 For instance, you want to allow your system to be able to create new 
 instances of Wordpress sites on demand:
