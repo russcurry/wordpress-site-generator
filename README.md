@@ -11,8 +11,6 @@ user-a.example.com
 
 user-b.example.com
 
-user-c.example.com
-
 And so on.
 
 This was intended as an example for a former client, and is not intended
@@ -21,7 +19,7 @@ you could easily tweak it a bit to handle real-world situations).
 
 If you want to test this locally, you will need to have the following:
 
-1. A linux box running NGINX.
+1. A linux box running NGINX and Docker + Docker Compose.
 
 2. Some changes to your /etc/hosts file:
 
