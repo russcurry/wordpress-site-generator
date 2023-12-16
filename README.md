@@ -14,7 +14,7 @@ user-b.example.com
 
 And so on.
 
-This was intended as an example for a former client, and is not intended
+This is just an example / prototype, and as such is not intended
 to be a production-ready piece of code (it is, however, pretty close and 
 you could easily tweak it a bit to handle real-world situations).
 
